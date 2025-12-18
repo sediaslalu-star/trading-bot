@@ -15,7 +15,7 @@ api_hash = getenv('TELEGRAM_API_HASH')
 phone = getenv('TELEGRAM_PHONE')
 password = getenv('TELEGRAM_PASSWORD')
 client = TelegramClient('tradingbot', api_id, api_hash).start(
-    phone=phone,  password=password)
+    phone=phone)
 
 # copy telegram_channels.example.json to provide the channels
 CHANNELS = [{**channel, 'id': PeerChannel(channel_id=channel['id'])}

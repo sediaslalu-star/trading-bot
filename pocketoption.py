@@ -233,7 +233,8 @@ class PocketOption():
                 def b(driver): return driver.find_element(
                     By.CSS_SELECTOR, f'.js-balance-{"demo" if self.demo else "real"}')
                 balance = wrapper.run(b)
-                return float(balance.text)
+                parsed_balance = balance.text.replace('$', '').replace(',', '')
+                return float(parsed_balance)
         except (WebDriverException, AttributeError) as e:
             log(f'Balance Error: {e}', False)
             return None
